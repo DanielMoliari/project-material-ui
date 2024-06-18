@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Icon, Paper, Skeleton, useTheme } from "@mui/material";
+import { Box, Button, Divider, Icon, Paper, Skeleton, Typography, useTheme } from "@mui/material";
 
 interface IFerramentasDeDetalheProps {
   textoBotaoNovo?: string;
@@ -64,7 +64,9 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
           onClick={aoClicarEmSalvar}
           startIcon={<Icon>save</Icon>}
         >
+          <Typography variant="button" whiteSpace="nowrap" textOverflow="ellipsis" overflow="hidden">
           Salvar
+          </Typography>
         </Button>
       )}
 
@@ -80,7 +82,9 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
           onClick={aoClicarEmSalvarEFechar}
           startIcon={<Icon>save</Icon>}
         >
+          <Typography variant="button" whiteSpace="nowrap" textOverflow="ellipsis" overflow="hidden">
           Salvar e voltar
+          </Typography>
         </Button>
       )}
 
@@ -96,7 +100,9 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
           onClick={aoClicarEmApagar}
           startIcon={<Icon>delete</Icon>}
         >
+          <Typography variant="button" whiteSpace="nowrap" textOverflow="ellipsis" overflow="hidden">
           Apagar
+          </Typography>
         </Button>
       )}
 
@@ -112,7 +118,9 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
           onClick={aoClicarEmNovo}
           startIcon={<Icon>add</Icon>}
         >
+          <Typography variant="button" whiteSpace="nowrap" textOverflow="ellipsis" overflow="hidden">
           {textoBotaoNovo}
+          </Typography>
         </Button>
       )}
 
@@ -129,7 +137,9 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
           onClick={aoClicarEmVoltar}
           startIcon={<Icon>arrow_back</Icon>}
         >
+          <Typography variant="button" whiteSpace="nowrap" textOverflow="ellipsis" overflow="hidden">
           Voltar
+          </Typography>
         </Button>
       )}
 
