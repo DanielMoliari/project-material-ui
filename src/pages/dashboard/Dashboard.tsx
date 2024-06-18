@@ -1,10 +1,6 @@
-import { LayoutBaseDePagina } from "../../shared/layouts"
+/* eslint-disable react/react-in-jsx-scope */
+import { LayoutBaseDePagina } from "../../shared/layouts";
 
 export const Dashboard = () => {
-
-    return (
-        <LayoutBaseDePagina>
-            Alou
-        </LayoutBaseDePagina>
-    )
-}
+  return <LayoutBaseDePagina titulo="Página Inicial">A</LayoutBaseDePagina>;
+};
