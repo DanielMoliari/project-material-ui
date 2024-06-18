@@ -1,5 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
-import { BarraDeFerramentas } from "../../shared/components";
+import { FerramentasDaListagem } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 
 export const Dashboard = () => {
@@ -7,7 +6,7 @@ export const Dashboard = () => {
     <LayoutBaseDePagina
       titulo="Página Inicial"
       barraDeFerramentas={
-        <BarraDeFerramentas mostrarInputBusca textoBotaoNovo="Nova" />
+        <FerramentasDaListagem mostrarInputBusca textoBotaoNovo="Nova" />
       }
     >
       A
