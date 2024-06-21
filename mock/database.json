@@ -1,31 +1,31 @@
 {
   "pessoas": [
     {
-      "id": "1",
+      "id": 1,
       "email": "juca@gmail.com",
       "cidadeId": 1,
       "nomeCompleto": "Juca Silva"
     },
     {
-      "id": "2",
+      "id": 2,
       "email": "teste@gmail.com",
       "cidadeId": 1,
       "nomeCompleto": "Teste"
     },
     {
-      "id": "3",
+      "id": 3,
       "email": "material@gmail.com",
       "cidadeId": 1,
       "nomeCompleto": "Material UI"
     },
     {
-      "id": "4",
+      "id": 4,
       "email": "curso@gmail.com",
       "cidadeId": 1,
       "nomeCompleto": "Curso"
     },
     {
-      "id": "5",
+      "id": 5,
       "email": "doing@gmail.com",
       "cidadeId": 1,
       "nomeCompleto": "Doing AA kk"

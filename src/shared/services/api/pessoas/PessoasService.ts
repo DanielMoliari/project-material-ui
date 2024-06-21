@@ -2,14 +2,14 @@ import { Environment } from "../../../environment";
 import { Api } from "../axios-config";
 
 export interface IListagemPessoa {
-  id: string;
+  id: number;
   email: string;
   cidadeId: number;
   nomeCompleto: string;
 }
 
 export interface IDetalhePessoa {
-  id: string;
+  id: number;
   email: string;
   cidadeId: number;
   nomeCompleto: string;
@@ -25,8 +25,9 @@ const getAll = async (
   filter = ""
 ): Promise<TPessoasComTotalCount | Error> => {
   try {
-    const urlRelative = `/pessoas?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nomeCompleto_like=${filter}`;
-    const { data, headers } = await Api.get(urlRelative);
+    const urlRelativa = `/pessoas?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nomeCompleto_like=${filter}`;
+
+    const { data, headers } = await Api.get(urlRelativa);
 
     if (data) {
       return {
@@ -46,7 +47,7 @@ const getAll = async (
   }
 };
 
-const getById = async (id: string): Promise<IDetalhePessoa | Error> => {
+const getById = async (id: number): Promise<IDetalhePessoa | Error> => {
   try {
     const { data } = await Api.get(`/pessoas/${id}`);
 
@@ -65,7 +66,7 @@ const getById = async (id: string): Promise<IDetalhePessoa | Error> => {
 
 const create = async (
   dados: Omit<IDetalhePessoa, "id">
-): Promise<string | Error> => {
+): Promise<number | Error> => {
   try {
     const { data } = await Api.post<IDetalhePessoa>(`/pessoas`, dados);
 
@@ -83,7 +84,7 @@ const create = async (
 };
 
 const updateById = async (
-  id: string,
+  id: number,
   dados: IDetalhePessoa
 ): Promise<void | Error> => {
   try {
@@ -96,7 +97,7 @@ const updateById = async (
   }
 };
 
-const deleteById = async (id: string): Promise<any> => {
+const deleteById = async (id: number): Promise<any> => {
   try {
     await Api.delete<IDetalhePessoa>(`/pessoas/${id}`);
   } catch (error) {

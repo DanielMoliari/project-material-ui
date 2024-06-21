@@ -8,18 +8,21 @@ import {
 } from "../../shared/services/api/pessoas/PessoasService";
 import { useDebounce } from "../../shared/hooks";
 import {
+  LinearProgress,
   Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
+  TableFooter,
   TableHead,
   TableRow,
 } from "@mui/material";
+import { Environment } from "../../shared/environment";
 
 export const ListagemDePessoa: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { debounce } = useDebounce(3000, true);
+  const { debounce } = useDebounce();
 
   const [rows, setRows] = useState<IListagemPessoa[]>([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -34,18 +37,19 @@ export const ListagemDePessoa: React.FC = () => {
 
     debounce(() => {
       PessoasService.getAll(1, busca).then((result) => {
-        setIsLoading(true);
+        setIsLoading(false);
 
         if (result instanceof Error) {
           alert(result.message);
-          return;
+        } else {
+          console.log(result);
+
+          setTotalCount(result.totalCount);
+          setRows(result.data);
         }
-        console.log(result);
-        setTotalCount(result.totalCount);
-        setRows(result.data);
       });
     });
-  }, [busca]);
+  }, [busca, debounce]);
 
   return (
     <LayoutBaseDePagina
@@ -83,6 +87,20 @@ export const ListagemDePessoa: React.FC = () => {
               </TableRow>
             ))}
           </TableBody>
+
+          {totalCount === 0 && !isLoading && (
+            <caption>{Environment.LISTAGEM_VAZIA}</caption>
+          )}
+
+          <TableFooter>
+            {isLoading && (
+              <TableRow>
+                <TableCell colSpan={3}>
+                  <LinearProgress variant="indeterminate" />
+                </TableCell>
+              </TableRow>
+            )}
+          </TableFooter>
         </Table>
       </TableContainer>
     </LayoutBaseDePagina>
