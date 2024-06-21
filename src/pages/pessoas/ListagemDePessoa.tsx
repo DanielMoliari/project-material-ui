@@ -13,7 +13,7 @@ export const ListagemDePessoa: React.FC = () => {
 
     useEffect(() => {
 
-        PessoasService.getAll()
+        PessoasService.getAll(1, busca)
         .then((result) => {
             if (result instanceof Error) {
                 alert(result.message);
@@ -21,7 +21,7 @@ export const ListagemDePessoa: React.FC = () => {
             }
             console.log(result);
         })
-    }, [])
+    }, [busca])
 
     return (
         <LayoutBaseDePagina titulo="Listagem de cidades" barraDeFerramentas={
