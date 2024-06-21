@@ -15,9 +15,9 @@ export const AppRoutes = () => {
         path: "/pagina-inicial",
       },
       {
-        label: "Cidades",
-        icon: "location_city",
-        path: "/cidades",
+        label: "Pessoas",
+        icon: "people_alt",
+        path: "/pessoas",
       },
     ]);
   }, []);
