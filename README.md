@@ -23,4 +23,4 @@ To clone the repository:
 
 ## :camera_flash: Website GIF
 # Desktop:
-<img src="./src/assets/AnimacaoDesktop.gif" width="100%">
+<img src="./public/assets/animacao-projeto.gif" width="100%">
