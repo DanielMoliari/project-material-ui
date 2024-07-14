@@ -1,14 +1,21 @@
 import axios from 'axios';
-import { errorInterceptor, responseInterceptor } from './interceptors';
+
+import { responseInterceptor, errorInterceptor } from './interceptors';
 import { Environment } from '../../../environment';
 
-const Api = axios.create({
-    baseURL: Environment.URL_BASE,
-})
 
-Api.interceptors.response.use(
+export const Api = () => {
+  const api = axios.create({
+    baseURL: Environment.URL_BASE,
+    headers: {
+      authorization: `Bearer ${JSON.parse(localStorage.getItem('APP_ACCESS_TOKEN') || '""')}`
+    }
+  });
+
+  api.interceptors.response.use(
     (response) => responseInterceptor(response),
     (error) => errorInterceptor(error),
-)
+  );
 
-export { Api };
+  return api;
+};
