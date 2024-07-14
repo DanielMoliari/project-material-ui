@@ -1,8 +1,14 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { useDrawerContext } from "../shared/contexts";
-import { useEffect } from "react";
-import { Dashboard, ListagemDePessoa } from "../pages";
-import React from "react";
+import { useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+
+import { useDrawerContext } from '../shared/contexts';
+import {
+  Dashboard,
+  DetalheDePessoas,
+  ListagemDePessoas,
+  DetalheDeCidades,
+  ListagemDeCidades,
+} from '../pages';
 
 export const AppRoutes = () => {
   const { setDrawerOptions } = useDrawerContext();
@@ -10,14 +16,19 @@ export const AppRoutes = () => {
   useEffect(() => {
     setDrawerOptions([
       {
-        label: "Página inicial",
-        icon: "home",
-        path: "/pagina-inicial",
+        icon: 'home',
+        path: '/pagina-inicial',
+        label: 'Página inicial',
       },
       {
-        label: "Pessoas",
-        icon: "people_alt",
-        path: "/pessoas",
+        icon: 'location_city',
+        path: '/cidades',
+        label: 'Cidades',
+      },
+      {
+        icon: 'people',
+        path: '/pessoas',
+        label: 'Pessoas',
       },
     ]);
   }, []);
@@ -26,9 +37,11 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/pagina-inicial" element={<Dashboard />} />
 
-      <Route path="/pessoas" element={<ListagemDePessoa />} />
+      <Route path="/pessoas" element={<ListagemDePessoas />} />
+      <Route path="/pessoas/detalhe/:id" element={<DetalheDePessoas />} />
 
-      {/* <Route path="/cidades" element={<Dashboard />} /> */}
+      <Route path="/cidades" element={<ListagemDeCidades />} />
+      <Route path="/cidades/detalhe/:id" element={<DetalheDeCidades />} />
 
       <Route path="*" element={<Navigate to="/pagina-inicial" />} />
     </Routes>
